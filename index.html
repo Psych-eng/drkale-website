@@ -602,7 +602,7 @@
 
                 <div class="bg-gray-50 rounded-lg p-8">
                     <h3 class="text-xl font-semibold text-gray-900 mb-6">Request Consultation</h3>
-                    <form class="space-y-4" id="contact-form" onsubmit="sendEmail(event)">
+                    <form class="space-y-4" id="contact-form" onsubmit="submitForm(event)">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
                             <input type="text" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -655,32 +655,41 @@
     </footer>
 
     <script>
-        function sendEmail(event) {
+        async function submitForm(event) {
             event.preventDefault();
             
             const form = document.getElementById('contact-form');
-            const name = form.querySelector('[name="name"]').value;
-            const email = form.querySelector('[name="email"]').value;
-            const phone = form.querySelector('[name="phone"]').value;
-            const role = form.querySelector('[name="role"]').value;
-            const message = form.querySelector('[name="message"]').value;
-            
-            const subject = encodeURIComponent('New Consultation Request - Dr. Kale Website');
-            const body = encodeURIComponent(
-                `Name: ${name}\n` +
-                `Email: ${email}\n` +
-                `Phone: ${phone || 'Not provided'}\n` +
-                `Role: ${role}\n\n` +
-                `Evaluation Needs:\n${message}`
-            );
-            
-            window.location.href = `mailto:email@drkale.net?subject=${subject}&body=${body}`;
-            
-            // Show success message
             const status = document.getElementById('form-status');
-            status.className = 'mt-4 p-4 rounded-md bg-green-100 text-green-800';
-            status.textContent = 'Your email client should open. Please send the email to complete your request.';
-            status.classList.remove('hidden');
+            const submitButton = form.querySelector('button[type="submit"]');
+            
+            // Disable button and show loading
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('/contact', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    status.className = 'mt-4 p-4 rounded-md bg-green-100 text-green-800';
+                    status.textContent = 'Thank you! Your consultation request has been sent successfully. We will contact you soon.';
+                    form.reset();
+                } else {
+                    throw new Error(result.message);
+                }
+            } catch (error) {
+                status.className = 'mt-4 p-4 rounded-md bg-red-100 text-red-800';
+                status.textContent = 'Sorry, there was an error sending your request. Please email us directly at email@drkale.net or call 860-561-5453.';
+            } finally {
+                status.classList.remove('hidden');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Request Consultation';
+            }
         }
         
         async function explainEducationalImpact() {
