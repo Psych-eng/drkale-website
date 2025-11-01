@@ -34,3 +34,4 @@
 - [x] Remove "Available diagnoses" text from widget
 - [x] Integrate Web3Forms into contact form with access key
 - [x] Update education section to show MD, Bombay University instead of MBBS
+[x] Website deployed to Cloudflare
