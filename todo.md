@@ -1,0 +1,36 @@
+# Project TODO
+
+- [x] Set up professional design system (colors, fonts, styling)
+- [x] Create homepage with updated hero section and value proposition
+- [x] Build "For School Districts" page with problem-focused approach
+- [x] Create "Threat & Risk Assessments" section/page
+- [x] Build "About Dr. Kale" page
+- [x] Create "Evaluation Process" page
+- [x] Build "For Parents" page
+- [x] Create "Credentials" page
+- [x] Build "Contact" page with contact form
+- [x] Add navigation header with all pages
+- [x] Add footer with contact information
+- [x] Ensure mobile responsiveness
+- [x] Add professional imagery/graphics
+- [x] Test all links and navigation
+- [x] Final review and polish
+- [x] Add logo to website header
+- [x] Add Dr. Kale's professional photo to About section on homepage
+- [x] Add photo to Credentials page
+- [x] Optimize images for web performance
+- [x] Fix photo cropping to show full face properly
+- [x] Create interactive IEP Accommodations Tool page
+- [x] Add accommodations database for ADHD, Autism, Anxiety, Depression, Suicidality/Self-Harm, ODD, Bipolar, Trauma/PTSD
+- [x] Add IEP Tool to main navigation
+- [x] Test interactive functionality
+- [x] Remove IEP Tool from navigation
+- [x] Create Educational Impact & IEP Guide widget for homepage
+- [x] Add educational impact descriptions for all diagnoses
+- [x] Integrate widget into "More Than Compliance" section
+- [x] Make widget searchable with type-ahead functionality
+- [x] Test widget functionality on homepage
+- [x] Move Educational Impact & IEP Guide widget to appear after value proposition cards
+- [x] Remove "Available diagnoses" text from widget
+- [x] Integrate Web3Forms into contact form with access key
+- [x] Update education section to show MD, Bombay University instead of MBBS
