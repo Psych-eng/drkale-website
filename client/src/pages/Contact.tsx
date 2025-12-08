@@ -143,6 +143,7 @@ export default function Contact() {
                   <Label htmlFor="name">Name *</Label>
                   <Input
                     id="name"
+                    name="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -154,6 +155,7 @@ export default function Contact() {
                   <Label htmlFor="email">Email *</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -166,6 +168,7 @@ export default function Contact() {
                   <Label htmlFor="phone">Phone</Label>
                   <Input
                     id="phone"
+                    name="phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -177,6 +180,7 @@ export default function Contact() {
                   <Label htmlFor="organization">School District / Organization</Label>
                   <Input
                     id="organization"
+                    name="organization"
                     value={formData.organization}
                     onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                     placeholder="e.g., Glastonbury Public Schools"
@@ -187,6 +191,7 @@ export default function Contact() {
                   <Label htmlFor="message">Message *</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
@@ -210,3 +215,4 @@ export default function Contact() {
     </div>
   );
 }
+
