@@ -28,9 +28,8 @@ export const schoolPortalConfig: Record<string, string> = {
   "TEST-SCHOOL-001": "https://drkale.sharepoint.com/sites/MilindKaleMDLLC/Shared%20Documents/School-Districts/Test-School-001",
   "TEST-SCHOOL-002": "https://drkale.sharepoint.com/sites/MilindKaleMDLLC/Shared%20Documents/School-Districts/Test-School-002",
   
-  // Add your real district access codes below:
-  // "DISTRICT-2024-ABC123": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/...",
-  // "GLASTONBURY-2024-XYZ": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/...",
+  // Real District Access Codes:
+  "HAMPTON-2026-001": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/EgDLZLNX4LlVS42l5xjGSz28AbWOWEi8KKnidmhWKCaF-bQ?e=P6l8Cr",
 };
 
 /**
