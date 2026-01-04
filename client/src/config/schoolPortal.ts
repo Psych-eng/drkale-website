@@ -33,9 +33,9 @@ export const schoolPortalConfig: Record<string, string> = {
   "DISTRICT-2026-004": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDcUS0Fa6WNSY-peVa9c6b5AeBjjjZI2uWOw4t-XkKWsfs?e=JwFdXX", // Canton
   "DISTRICT-2026-005": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgBXPz70CWDqTLLqLHbMWTjlAcOqeVjWT1EHX3mBgSD3xu8?e=KLaRvm", // CREC
   "DISTRICT-2026-006": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgClAd7GPS4JSoVk7OB4UzWRAZbSnuegOUKeVwcWZXovWt4?e=ybbkJU", // Farmington
-  "DISTRICT-2026-007": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAvO2S08MD5QKyZiaS3AwbnAQNoGocwgZFArKXdJjd_vx8?e=CW4vd6", // South Windsor
+  "DISTRICT-2026-007": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDnwZ3gCerGS7s-373xiDsWAVwE5s4MKhl4QRpoVE3TGmo?e=tkN70r", // South Windsor
   "DISTRICT-2026-008": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgC40_4FhcbQQbTfF2BA4ZmNAUtU9xA4OYdcklpfu_VQxDM?e=uMDjQY", // Newington
-  "DISTRICT-2026-009": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDnwZ3gCerGS7s-373xiDsWAVwE5s4MKhl4QRpoVE3TGmo?e=tkN70r", // Middletown
+  "DISTRICT-2026-009": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAvO2S08MD5QKyZiaS3AwbnAQNoGocwgZFArKXdJjd_vx8?e=CW4vd6", // Middletown
   
   // Test/Demo Districts (for testing purposes)
   "TEST-SCHOOL-001": "https://drkale.sharepoint.com/sites/MilindKaleMDLLC/Shared%20Documents/School-Districts/Test-School-001",
