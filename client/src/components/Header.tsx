@@ -25,6 +25,9 @@ export default function Header() {
           <Link href="/school-districts" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
             For School Districts
           </Link>
+          <Link href="/school-portal" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            School Portal
+          </Link>
           <Link href="/parents" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
             For Parents
           </Link>
@@ -58,6 +61,9 @@ export default function Header() {
             </Link>
             <Link href="/school-districts" className="block text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               For School Districts
+            </Link>
+            <Link href="/school-portal" className="block text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              School Portal
             </Link>
             <Link href="/parents" className="block text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               For Parents

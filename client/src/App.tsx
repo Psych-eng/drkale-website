@@ -11,6 +11,7 @@ import Parents from "./pages/Parents";
 import Process from "./pages/Process";
 import Credentials from "./pages/Credentials";
 import Contact from "./pages/Contact";
+import SchoolPortal from "./pages/SchoolPortal";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -26,6 +27,7 @@ function Router() {
         <Route path={"/process"} component={Process} />
         <Route path={"/credentials"} component={Credentials} />
         <Route path={"/contact"} component={Contact} />
+        <Route path={"/school-portal"} component={SchoolPortal} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />

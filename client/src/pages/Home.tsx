@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import DiagnosisLookup from "@/components/DiagnosisLookup";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Shield, Brain, FileCheck, Users, Award, Clock } from "lucide-react";
+import { Shield, Brain, FileCheck, Users, Award, Clock, Lock } from "lucide-react";
 
 export default function Home() {
   return (
@@ -106,6 +106,25 @@ export default function Home() {
                 <p className="text-muted-foreground">
                   Critical suicide risk assessment and violence prevention expertise to ensure the safety of students and the school community.
                 </p>
+              </CardContent>
+            </Card>
+
+            <Card className="md:col-span-2 lg:col-span-3 border-primary/20 bg-primary/5">
+              <CardContent className="pt-6">
+                <div className="flex flex-col md:flex-row items-start gap-6">
+                  <Lock className="h-12 w-12 text-primary flex-shrink-0" />
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-2">HIPAA-Compliant Secure Document Exchange</h3>
+                    <p className="text-muted-foreground mb-4">
+                      School districts can securely upload student records and download completed evaluations through our password-protected SharePoint portal. Each district receives a unique access code for their isolated, private folder—ensuring complete confidentiality and HIPAA compliance.
+                    </p>
+                    <Link href="/school-portal">
+                      <Button variant="outline" size="sm">
+                        Access School Portal
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>

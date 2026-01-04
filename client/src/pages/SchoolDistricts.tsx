@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Shield, AlertTriangle, Brain, Scale, DollarSign, Users } from "lucide-react";
+import { Shield, AlertTriangle, Brain, Scale, DollarSign, Users, Lock, Upload, Download } from "lucide-react";
 
 export default function SchoolDistricts() {
   return (
@@ -173,6 +173,76 @@ export default function SchoolDistricts() {
             <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-6">
               <p className="text-foreground font-medium">
                 <strong>Don't wait for a crisis.</strong> If you have a student of concern, a psychiatric risk assessment is a critical investment in the safety and well-being of your entire school community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Secure Document Exchange Section */}
+      <section className="py-16">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="flex justify-center mb-4">
+                <Lock className="h-16 w-16 text-primary" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                HIPAA-Compliant Secure Document Exchange
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Streamline your evaluation process with our secure, password-protected portal for document sharing.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <Upload className="h-10 w-10 text-primary flex-shrink-0" />
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Upload Documents Securely</h3>
+                      <p className="text-muted-foreground">
+                        Upload student records, referral forms, consent forms, and supporting documentation directly to your district's private folder. No email attachments, no faxing, no security risks.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <Download className="h-10 w-10 text-primary flex-shrink-0" />
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Download Completed Evaluations</h3>
+                      <p className="text-muted-foreground">
+                        Access completed psychiatric evaluations and reports as soon as they're ready. All documents are encrypted and accessible only to your district.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 mb-8">
+              <h3 className="font-bold text-lg mb-3">Complete Privacy & Isolation</h3>
+              <p className="text-muted-foreground mb-3">
+                Your district's portal is completely isolated from all other districts. No other school can see your district name, documents, or even know that you're using this service. Each district receives a unique access code that redirects only to their specific folder.
+              </p>
+              <p className="text-foreground/80">
+                This ensures compliance with FERPA, HIPAA, and student privacy regulations while providing the convenience of modern cloud-based document exchange.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <Link href="/school-portal">
+                <Button size="lg">
+                  Access School Portal
+                </Button>
+              </Link>
+              <p className="text-sm text-muted-foreground mt-4">
+                Don't have an access code yet? Contact Dr. Kale to set up your district's secure portal.
               </p>
             </div>
           </div>
