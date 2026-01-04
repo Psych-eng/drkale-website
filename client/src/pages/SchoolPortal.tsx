@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Shield, Lock, FileCheck, Upload, Download, CheckCircle2 } from "lucide-react";
+import { Shield, Lock, FileCheck, Upload, Download, CheckCircle2, BookOpen } from "lucide-react";
 import { useState } from "react";
 import { schoolPortalConfig } from "@/config/schoolPortal";
 
@@ -93,7 +93,14 @@ export default function SchoolPortal() {
                   </Button>
                 </form>
 
-                <div className="mt-6 pt-6 border-t">
+                <div className="mt-6 pt-6 border-t space-y-3">
+                  <a 
+                    href="/portal-guide" 
+                    className="flex items-center justify-center gap-2 text-sm font-medium text-primary hover:underline"
+                  >
+                    <BookOpen className="h-4 w-4" />
+                    View Portal Guide & Instructions
+                  </a>
                   <p className="text-sm text-muted-foreground text-center">
                     Don't have an access code?{" "}
                     <a href="/contact" className="text-primary hover:underline">
