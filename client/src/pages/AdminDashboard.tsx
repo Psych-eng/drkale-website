@@ -67,7 +67,7 @@ export default function AdminDashboard() {
 
     try {
       // Load logs
-      const logsResponse = await fetch('/api/get-logs?limit=100', {
+      const response = await fetch('/api/get-logs?limit=100', {
         headers: {
           'Authorization': `Basic ${auth}`,
         },
