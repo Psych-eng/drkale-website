@@ -12,7 +12,7 @@ export default function SchoolPortal() {
   const [error, setError] = useState("");
   const [isValidating, setIsValidating] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setIsValidating(true);
@@ -22,6 +22,29 @@ export default function SchoolPortal() {
 
     // Check if the code exists in the configuration
     const sharePointLink = schoolPortalConfig[normalizedCode];
+
+    // Extract district name from access code (e.g., "HAMPTON-F5PM-2026" -> "Hampton")
+    const districtName = normalizedCode.split('-')[0];
+    const districtNameFormatted = districtName.charAt(0) + districtName.slice(1).toLowerCase();
+
+    // Log the access attempt
+    try {
+      await fetch('/api/log-access', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          accessCode: normalizedCode,
+          districtName: districtNameFormatted,
+          success: !!sharePointLink,
+          sharePointUrl: sharePointLink || undefined,
+        }),
+      });
+    } catch (error) {
+      console.error('Failed to log access:', error);
+      // Don't block access if logging fails
+    }
 
     if (sharePointLink) {
       // Redirect to the SharePoint folder
