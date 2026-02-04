@@ -40,6 +40,8 @@ export const schoolPortalConfig: Record<string, string> = {
   "CANTON-AN6L-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDcUS0Fa6WNSY-peVa9c6b5AeBjjjZI2uWOw4t-XkKWsfs?e=JwFdXX", // Canton
   "CREC-K7JH-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgBXPz70CWDqTLLqLHbMWTjlAcOqeVjWT1EHX3mBgSD3xu8?e=KLaRvm", // CREC
   "FARMINGTON-GHFH-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgClAd7GPS4JSoVk7OB4UzWRAZbSnuegOUKeVwcWZXovWt4?e=ybbkJU", // Farmington
+    "GRISWOLD-WOAD-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgC4c64H0aUXQqsOQuYHuSTfATJ4AfVtQarcN0KhaxTBdfQ?e=pgTB6X", // Griswold
+
   "HAMPTON-F5PM-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDLZLNX4LlVS42l5xjGSz28AbWOWEi8KKnidmhWKCaF-bQ?e=cJ16ba", // Hampton
   "MIDDLETOWN-9EPJ-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAvO2S08MD5QKyZiaS3AwbnAQNoGocwgZFArKXdJjd_vx8?e=CW4vd6", // Middletown
   "NEWINGTON-J5JU-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgC40_4FhcbQQbTfF2BA4ZmNAUtU9xA4OYdcklpfu_VQxDM?e=uMDjQY", // Newington
@@ -59,12 +61,14 @@ export const schoolPortalConfig: Record<string, string> = {
  * Canton        - CANTON-AN6L-2026
  * CREC          - CREC-K7JH-2026
  * Farmington    - FARMINGTON-GHFH-2026
+  * Griswold      - GRISWOLD-WOAD-2026
+
  * Hampton       - HAMPTON-F5PM-2026
  * Middletown    - MIDDLETOWN-9EPJ-2026
  * Newington     - NEWINGTON-J5JU-2026
  * South Windsor - SOUTHWINDSOR-ZUZN-2026
  * 
- * TOTAL ACTIVE DISTRICTS: 9
+ * TOTAL ACTIVE DISTRICTS: 10
  * 
  * TO GENERATE NEW RANDOM CODE:
  * Use format: DISTRICTNAME-XXXX-2026
