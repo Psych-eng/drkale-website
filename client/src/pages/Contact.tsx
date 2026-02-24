@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CreditCard } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -13,12 +13,12 @@ export default function Contact() {
     email: "",
     phone: "",
     organization: "",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const form = e.target as HTMLFormElement;
     const formDataToSend = new FormData(form);
     formDataToSend.append("access_key", "4fadda93-5270-4094-b962-384f682b01e4");
@@ -26,7 +26,7 @@ export default function Contact() {
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formDataToSend
+        body: formDataToSend,
       });
 
       const data = await response.json();
@@ -62,79 +62,125 @@ export default function Contact() {
       <section className="py-16">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
 
-              <div className="space-y-6 mb-8">
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-4">
-                      <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-bold mb-1">Phone</h3>
-                        <p className="text-muted-foreground">860-561-5453</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+            {/* Left column: Contact info + hours + map */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">Contact Information</h2>
 
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-4">
-                      <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-bold mb-1">Email</h3>
-                        <p className="text-muted-foreground">email@drkale.net</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-4">
-                      <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-bold mb-1">Address</h3>
-                        <p className="text-muted-foreground">
-                          119C Griswold Street, Suite 104<br />
-                          Glastonbury, CT 06033
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-4">
-                      <Clock className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-bold mb-1">Availability</h3>
-                        <p className="text-muted-foreground mb-2">
-                          <strong>School Evaluations:</strong> Mondays & Fridays during school hours
-                        </p>
-                        <p className="text-muted-foreground">
-                          <strong>Private Practice:</strong> Monday evenings
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <Card className="bg-muted/50">
+              {/* Phone */}
+              <Card>
                 <CardContent className="pt-6">
-                  <h3 className="font-bold mb-2">Payment Information</h3>
-                  <p className="text-sm text-muted-foreground">
-                    <strong>No insurance accepted.</strong> Private pay practice with payment due at time of service. Documentation provided for potential insurance reimbursement. School districts may contract directly for evaluations.
-                  </p>
+                  <div className="flex items-start gap-4">
+                    <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-bold mb-1">Phone</h3>
+                      <a href="tel:+18605615453" className="text-muted-foreground hover:text-primary transition-colors">
+                        860-561-5453
+                      </a>
+                      <p className="text-xs text-muted-foreground mt-1">Fax: 860-371-2527</p>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
+
+              {/* Email */}
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-bold mb-1">Email</h3>
+                      <a href="mailto:email@drkale.net" className="text-muted-foreground hover:text-primary transition-colors">
+                        email@drkale.net
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Address */}
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-bold mb-1">Address</h3>
+                      <p className="text-muted-foreground">
+                        119C Griswold Street, Suite 104
+                        <br />
+                        Glastonbury, CT 06033
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Office Hours */}
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <Clock className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div className="w-full">
+                      <h3 className="font-bold mb-3">Office Hours</h3>
+                      <table className="w-full text-sm">
+                        <tbody className="text-muted-foreground">
+                          <tr className="border-b border-border/40">
+                            <td className="py-1.5 font-medium text-foreground">Monday</td>
+                            <td className="py-1.5 text-right">Evenings (Private Practice)</td>
+                          </tr>
+                          <tr className="border-b border-border/40">
+                            <td className="py-1.5 font-medium text-foreground">Tuesday – Thursday</td>
+                            <td className="py-1.5 text-right">By Appointment</td>
+                          </tr>
+                          <tr className="border-b border-border/40">
+                            <td className="py-1.5 font-medium text-foreground">Friday</td>
+                            <td className="py-1.5 text-right">School Hours (Evaluations)</td>
+                          </tr>
+                          <tr>
+                            <td className="py-1.5 font-medium text-foreground">Saturday – Sunday</td>
+                            <td className="py-1.5 text-right">Closed</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p className="text-xs text-muted-foreground mt-3">
+                        School evaluations are primarily conducted on Mondays and Fridays. Please call or email to inquire about new patient availability.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Payment */}
+              <Card className="bg-muted/50">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <CreditCard className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-bold mb-2">Payment Information</h3>
+                      <p className="text-sm text-muted-foreground">
+                        <strong>No insurance accepted.</strong> Private pay practice with payment due at time of service. Documentation provided for potential insurance reimbursement. School districts may contract directly for evaluations.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Google Maps Embed */}
+              <div className="rounded-xl overflow-hidden border border-border shadow-sm">
+                <iframe
+                  title="Office Location — 119C Griswold Street, Suite 104, Glastonbury, CT"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.0!2d-72.6087!3d41.7023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e65d9f2c5f1b3d%3A0x1f2e3c4d5a6b7c8d!2s119C%20Griswold%20St%20Suite%20104%2C%20Glastonbury%2C%20CT%2006033!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Right column: Contact Form */}
             <div>
               <h2 className="text-3xl font-bold mb-6">Send a Message</h2>
 
@@ -204,9 +250,7 @@ export default function Contact() {
                   Send Message
                 </Button>
 
-                <p className="text-sm text-muted-foreground text-center">
-                  * Required fields
-                </p>
+                <p className="text-sm text-muted-foreground text-center">* Required fields</p>
               </form>
             </div>
           </div>
@@ -215,4 +259,3 @@ export default function Contact() {
     </div>
   );
 }
-
