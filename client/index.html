@@ -1,28 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <link rel="icon" type="image/png" href="%VITE_APP_LOGO%" />
-    <link rel="apple-touch-icon" href="%VITE_APP_LOGO%" />
-    <title>%VITE_APP_TITLE%</title>
-    <!-- Add Google Fonts here, example:
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    -->
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- SEO: Page Title -->
+    <title>Dr. Milind Kale, MD | Child &amp; Adolescent Psychiatrist | Glastonbury, CT</title>
+
+    <!-- SEO: Meta Description & Keywords -->
+    <meta name="description" content="Board-certified Child, Adolescent &amp; Adult Psychiatrist in Glastonbury, CT. Dr. Milind Kale provides independent IEP psychiatric evaluations for school districts and compassionate care for families across Connecticut." />
+    <meta name="keywords" content="child psychiatrist Connecticut, adolescent psychiatrist Glastonbury, IEP evaluation Connecticut, school psychiatric evaluation, psychiatric evaluation for school districts, Dr. Milind Kale, ADHD evaluation CT, independent educational evaluation Connecticut" />
+    <meta name="author" content="Dr. Milind Kale, MD" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.drkale.net/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.drkale.net/" />
+    <meta property="og:title" content="Dr. Milind Kale, MD | Child &amp; Adolescent Psychiatrist | Glastonbury, CT" />
+    <meta property="og:description" content="Expert psychiatric care and independent IEP evaluations for school districts and families in Connecticut. Board-certified with 20+ years of experience." />
+    <meta property="og:image" content="https://www.drkale.net/drkalephoto.jpg" />
+    <meta property="og:site_name" content="Milind Kale MD LLC" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dr. Milind Kale, MD | Child &amp; Adolescent Psychiatrist | Glastonbury, CT" />
+    <meta name="twitter:description" content="Expert psychiatric care and independent IEP evaluations for school districts and families in Connecticut." />
+    <meta name="twitter:image" content="https://www.drkale.net/drkalephoto.jpg" />
+
+    <!-- Structured Data: Physician (Schema.org JSON-LD for Google Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Dr. Milind Kale, MD",
+      "description": "Board-certified Child, Adolescent and Adult Psychiatrist providing independent IEP psychiatric evaluations for school districts and comprehensive psychiatric care for families in Connecticut.",
+      "url": "https://www.drkale.net",
+      "telephone": "+1-860-561-5453",
+      "email": "email@drkale.net",
+      "image": "https://www.drkale.net/drkalephoto.jpg",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "119C Griswold Street, Suite 104",
+        "addressLocality": "Glastonbury",
+        "addressRegion": "CT",
+        "postalCode": "06033",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.7023,
+        "longitude": -72.6087
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday"],
+          "opens": "17:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday"],
+          "opens": "08:00",
+          "closes": "15:00"
+        }
+      ],
+      "medicalSpecialty": [
+        "Psychiatry",
+        "Child and Adolescent Psychiatry",
+        "Psychosomatic Medicine"
+      ],
+      "hasCredential": [
+        "Board Certified in Child and Adolescent Psychiatry",
+        "Board Certified in General Psychiatry",
+        "Board Certified in Psychosomatic Medicine",
+        "ADOS Certified"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Bombay University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Idaho State University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "University of Connecticut / Institute of Living"
+        }
+      ],
+      "worksFor": {
+        "@type": "MedicalOrganization",
+        "name": "Milind Kale MD LLC",
+        "url": "https://www.drkale.net"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Connecticut"
+      }
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
   </body>
-
 </html>
