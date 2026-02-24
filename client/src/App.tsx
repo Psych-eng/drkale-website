@@ -14,6 +14,10 @@ import Contact from "./pages/Contact";
 import SchoolPortal from "./pages/SchoolPortal";
 import PortalGuide from "./pages/PortalGuide";
 import AdminDashboard from "./pages/AdminDashboard";
+import ThreatAssessment from "./pages/ThreatAssessment";
+import ManifestationDetermination from "./pages/ManifestationDetermination";
+import ExpertWitness from "./pages/ExpertWitness";
+import StaffTraining from "./pages/StaffTraining";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -23,7 +27,7 @@ function Router() {
       <Header />
       <Switch>
         <Route path={"/"} component={Home} />
-      <Route path={"/iep-tool"} component={IEPTool} />
+        <Route path={"/iep-tool"} component={IEPTool} />
         <Route path={"/school-districts"} component={SchoolDistricts} />
         <Route path={"/parents"} component={Parents} />
         <Route path={"/process"} component={Process} />
@@ -32,6 +36,11 @@ function Router() {
         <Route path={"/school-portal"} component={SchoolPortal} />
         <Route path={"/portal-guide"} component={PortalGuide} />
         <Route path={"/admin"} component={AdminDashboard} />
+        {/* New service pages */}
+        <Route path={"/threat-assessment"} component={ThreatAssessment} />
+        <Route path={"/manifestation-determination"} component={ManifestationDetermination} />
+        <Route path={"/expert-witness"} component={ExpertWitness} />
+        <Route path={"/staff-training"} component={StaffTraining} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
@@ -41,18 +50,10 @@ function Router() {
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
