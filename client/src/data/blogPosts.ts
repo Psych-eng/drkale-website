@@ -7,7 +7,7 @@ export interface BlogPost {
   audience: string[];
   tags: string[];
   excerpt: string;
-  content: string; // HTML string
+  content: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -70,12 +70,58 @@ export const blogPosts: BlogPost[] = [
     metaDescription:
       "A practical guide for Connecticut Special Education Directors and school psychologists explaining what a comprehensive child psychiatric evaluation includes and how the findings support IEP development.",
     publishedDate: "2026-03-10",
-    readingTimeMinutes: 5,
+    readingTimeMinutes: 7,
     audience: ["Special Education Directors", "School Psychologists"],
     tags: ["Psychiatric Evaluation", "IEP", "Special Education", "Connecticut", "School Psychologists"],
     excerpt:
-      "Special Education teams often work alongside psychiatric evaluations without fully understanding what the process involves. A clearer picture of what a comprehensive child psychiatric evaluation includes helps teams use the findings more effectively.",
-    content: `<p>This post is coming soon. Check back for the full article.</p>`,
+      "When a school district requests an independent psychiatric evaluation, the special education team often receives the final report without a clear understanding of how it was produced. That gap matters — because the more a team understands what went into the evaluation, the more effectively they can use the findings to build an appropriate Individualized Education Program.",
+    content: `
+<p>When a school district requests an independent psychiatric evaluation, the special education team often receives the final report without a clear understanding of how it was produced or what clinical process stands behind the conclusions. That gap matters — because the more a team understands what went into the evaluation, the more effectively they can use the findings to build an appropriate Individualized Education Program.</p>
+
+<p>This article walks through what a comprehensive child and adolescent psychiatric evaluation actually includes, from the first contact through the final report.</p>
+
+<h2>It Begins Before the Appointment</h2>
+
+<p>A thorough psychiatric evaluation starts with a careful review of existing records before the clinician ever meets the student. These records typically include prior psychological and educational evaluations, school records and report cards, behavioral incident logs, previous Individualized Education Programs and progress notes, any prior mental health treatment records that have been released, and medical records when relevant.</p>
+
+<p>This record review serves an important function. It allows the evaluating psychiatrist to understand the student's history in context, identify patterns that may not be apparent from a single encounter, and formulate specific hypotheses to explore during the clinical interview. A psychiatrist who arrives at an evaluation without having reviewed records is working with a significant blind spot.</p>
+
+<h2>The Clinical Interview with the Student</h2>
+
+<p>The centerpiece of any psychiatric evaluation is a direct clinical interview with the student. For children and adolescents, the interview is adapted to the student's developmental level and communication style. It is not a rigid questionnaire — it is a clinical conversation designed to elicit information that standardized tools alone cannot capture.</p>
+
+<p>During the interview, a child and adolescent psychiatrist will explore the student's mood, thought content and thought process, perceptual experiences, insight and judgment, cognitive functioning as observed in conversation, the student's own understanding of their difficulties, and their goals, fears, and relationships. The psychiatrist is simultaneously observing the student's behavior, affect, eye contact, motor activity, and the coherence of their responses — all of which constitute what is formally called the mental status examination.</p>
+
+<p>For students who have difficulty with verbal communication, the interview is adapted accordingly, and greater weight is placed on behavioral observation and collateral information.</p>
+
+<h2>The Parent and Caregiver Interview</h2>
+
+<p>A psychiatric evaluation of a child or adolescent always includes a substantive interview with parents or primary caregivers. This is not a courtesy — it is a clinical necessity. Parents provide a developmental history that cannot be obtained any other way, including pregnancy and birth history, early developmental milestones, the onset and progression of symptoms, family psychiatric history, and their observations of the child across settings and over time.</p>
+
+<p>The parent interview also gives the evaluating psychiatrist a direct sense of the family system, which is clinically relevant in virtually every case involving a child or adolescent.</p>
+
+<h2>Collateral Information from School</h2>
+
+<p>In a school-based evaluation, the psychiatrist will typically request input from teachers, school psychologists, counselors, or other staff who know the student. This may come in the form of standardized rating scales — such as the Conners, the BASC, or the Achenbach — completed independently by both parents and teachers, allowing the evaluator to compare how the student presents across home and school settings. Discrepancies between home and school ratings are themselves clinically meaningful.</p>
+
+<p>Direct communication with school staff, when appropriate and consented to, can also provide context that written records do not capture.</p>
+
+<h2>Psychological and Psychiatric Measures</h2>
+
+<p>Depending on the clinical questions being addressed, the evaluation may include structured or semi-structured diagnostic interviews, symptom rating scales specific to depression, anxiety, attention, trauma, or psychosis, and cognitive screening measures. It is important to note that a psychiatric evaluation is not the same as a neuropsychological or psychoeducational evaluation — the psychiatrist is not primarily administering lengthy cognitive batteries. The focus is on psychiatric diagnosis and its functional implications, not on measuring intellectual ability or academic achievement specifically. These are complementary, not competing, evaluations.</p>
+
+<h2>The Written Report</h2>
+
+<p>The evaluation concludes with a written report that synthesizes all of the above into a coherent clinical narrative. A well-written psychiatric evaluation report includes a summary of records reviewed, developmental and psychiatric history, mental status findings, diagnostic impressions with clinical reasoning, and recommendations.</p>
+
+<p>The recommendations section is where the report becomes most directly useful to the special education team. Good psychiatric recommendations address the student's educational environment and supports, behavioral interventions grounded in the student's diagnosis, therapeutic services and their appropriate intensity, medication considerations when relevant, and any safety concerns that require immediate attention.</p>
+
+<h2>How the Report Connects to the Individualized Education Program</h2>
+
+<p>The psychiatric evaluation report does not write the Individualized Education Program — that remains the team's responsibility. What it does is provide the clinical foundation that the team's decisions can rest on. When a team is determining eligibility under an emotional disturbance category, establishing the need for a therapeutic placement, or justifying a particular level of related services, the psychiatric evaluation provides the independent expert opinion that makes those decisions defensible.</p>
+
+<p>Special education teams get the most out of psychiatric evaluations when they read the report carefully before the meeting, invite discussion of the findings at the Individualized Education Program table, and ask the evaluating clinician to participate in the meeting or be available by phone when complex questions arise.</p>
+    `,
   },
   {
     slug: "understanding-idea-requirements-psychiatric-assessments-connecticut",
@@ -135,4 +181,3 @@ export function formatDate(dateString: string): string {
     day: "numeric",
   });
 }
-
