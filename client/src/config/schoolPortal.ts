@@ -65,9 +65,30 @@ export const schoolPortalConfig: Record<string, string> = {
   // Prabhu   - PRABHU-2026   Dr.Maya.Prabhu@gmail.com
   // Sahani   - SAHANI-2026   gssahani@gmail.com
   // ─────────────────────────────────────────────────────────────────────────
-  "WINOKUR-2026": "[PASTE WINOKUR SHAREPOINT LINK HERE]",
-  "PRABHU-2026": "[PASTE PRABHU SHAREPOINT LINK HERE]",
-  "SAHANI-2026": "[PASTE SAHANI SHAREPOINT LINK HERE]",
+ "WINOKUR-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgBJk5iS4HSiTo0p3ftgRGbYASQJuVL7aOQ_E-PsBL6J9ng?e=ehestN", // Dr. David Winokur
+  "PRABHU-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgD5vHlM6HznQaqQgLthQhreAd6dy_XJazXRxn1XxkYP8Co?e=O62XB4", // Dr. Maya Prabhu
+  "SAHANI-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAJ0C6ql3g_T7EF4jtkpB77AVY3gAM2KeIsB-TkTJ3E0qo?e=mTdHNd", // Dr. G. Sahani
+```
+
+---
+
+## Step 5 — Commit
+
+1. Scroll down to **"Commit changes"**
+2. Type this message:
+```
+Add SemanticMind SharePoint links — Winokur, Prabhu, Sahani
+```
+3. Leave it on **"Commit directly to the main branch"**
+4. Click the green **"Commit changes"** button
+
+---
+
+## Step 6 — Wait and Test
+
+Wait **2 to 5 minutes**, then go to:
+```
+https://www.drkale.net/school-portal,
 };
 
 /**
