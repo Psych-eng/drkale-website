@@ -34,7 +34,9 @@
  */
 
 export const schoolPortalConfig: Record<string, string> = {
-  // Active Districts (Alphabetical Order)
+  // ─────────────────────────────────────────────────────────────────────────
+  // SCHOOL DISTRICTS — Active (Alphabetical Order)
+  // ─────────────────────────────────────────────────────────────────────────
   "AVON-QSXK-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDiIh63SOeMRY6wHGmhunOgAcBtXVDInUbNglAvbM3nMS4?e=pgTB6X", // Avon
   "BLOOMFIELD-9UE3-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAClVoPfdvxT4I5Gc57UT9FAWVvUHoDHPbkQCk3-VymYzo?e=iU9y0F", // Bloomfield
   "CANTON-AN6L-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDcUS0Fa6WNSY-peVa9c6b5AeBjjjZI2uWOw4t-XkKWsfs?e=JwFdXX", // Canton
@@ -46,10 +48,26 @@ export const schoolPortalConfig: Record<string, string> = {
   "NEWINGTON-J5JU-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgC40_4FhcbQQbTfF2BA4ZmNAUtU9xA4OYdcklpfu_VQxDM?e=uMDjQY", // Newington
   "PORTLAND-HHDF-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgBzMU82PtgOQpbKV-lAYKo6AffsJBiA-jzS1UZVHtrBviw?e=cGUBhH", // Portland
   "SOUTHWINDSOR-ZUZN-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDnwZ3gCerGS7s-373xiDsWAVwE5s4MKhl4QRpoVE3TGmo?e=tkN70r", // South Windsor
-  
-  // Test/Demo Districts (for testing purposes)
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // SCHOOL DISTRICTS — Test/Demo (for testing purposes only)
+  // ─────────────────────────────────────────────────────────────────────────
   "TEST-SCHOOL-001": "https://drkale.sharepoint.com/sites/MilindKaleMDLLC/Shared%20Documents/School-Districts/Test-School-001",
   "TEST-SCHOOL-002": "https://drkale.sharepoint.com/sites/MilindKaleMDLLC/Shared%20Documents/School-Districts/Test-School-002",
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // SEMANTICMIND — Colleague Document Sharing
+  // Psychiatrist colleagues sharing clinical and academic documents
+  // Folder: SharePoint > Documents > SemanticMind > [Name]
+  //
+  // COLLEAGUE CODES (name-based for simplicity):
+  // Winokur  - WINOKUR-2026  winoukarpsych@gmail.com
+  // Prabhu   - PRABHU-2026   Dr.Maya.Prabhu@gmail.com
+  // Sahani   - SAHANI-2026   gssahani@gmail.com
+  // ─────────────────────────────────────────────────────────────────────────
+  "WINOKUR-2026": "[PASTE WINOKUR SHAREPOINT LINK HERE]",
+  "PRABHU-2026": "[PASTE PRABHU SHAREPOINT LINK HERE]",
+  "SAHANI-2026": "[PASTE SAHANI SHAREPOINT LINK HERE]",
 };
 
 /**
@@ -69,6 +87,11 @@ export const schoolPortalConfig: Record<string, string> = {
  * South Windsor - SOUTHWINDSOR-ZUZN-2026
  * 
  * TOTAL ACTIVE DISTRICTS: 11
+ * 
+ * SEMANTICMIND COLLEAGUES:
+ * Dr. David Winokur - WINOKUR-2026  (winoukarpsych@gmail.com)
+ * Dr. Maya Prabhu   - PRABHU-2026   (Dr.Maya.Prabhu@gmail.com)
+ * Dr. G. Sahani     - SAHANI-2026   (gssahani@gmail.com)
  * 
  * TO GENERATE NEW RANDOM CODE:
  * Use format: DISTRICTNAME-XXXX-2026
