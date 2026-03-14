@@ -72,6 +72,15 @@ export const schoolPortalConfig: Record<string, string> = {
 
 ---
 
+## Commit
+
+Scroll down, type the commit message:
+```
+Add SemanticMind SharePoint links — Winokur, Prabhu, Sahani
+```
+
+---
+
 ## Step 5 — Commit
 
 1. Scroll down to **"Commit changes"**
