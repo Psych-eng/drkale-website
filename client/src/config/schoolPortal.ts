@@ -61,7 +61,7 @@ export const schoolPortalConfig: Record<string, string> = {
   // Folder: SharePoint > Documents > SemanticMind > [Name]
   //
   // COLLEAGUE CODES (name-based for simplicity):
-  // Winokur  - WINOKUR-2026  winoukarpsych@gmail.com
+  // Winokur  - WINOKUR-2026  winokurpsych@gmail.com
   // Prabhu   - PRABHU-2026   Dr.Maya.Prabhu@gmail.com
   // Sahani   - SAHANI-2026   gssahani@gmail.com
   // ─────────────────────────────────────────────────────────────────────────
@@ -89,7 +89,7 @@ export const schoolPortalConfig: Record<string, string> = {
  * TOTAL ACTIVE DISTRICTS: 11
  * 
  * SEMANTICMIND COLLEAGUES:
- * Dr. David Winokur - WINOKUR-2026  (winoukarpsych@gmail.com)
+ * * Dr. David Winokur - WINOKUR-2026  (winokurpsych@gmail.com)
  * Dr. Maya Prabhu   - PRABHU-2026   (Dr.Maya.Prabhu@gmail.com)
  * Dr. G. Sahani     - SAHANI-2026   (gssahani@gmail.com)
  * 
