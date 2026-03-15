@@ -193,8 +193,59 @@ export default function PortalGuide() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Forms & Authorization Documents Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <FileText className="w-14 h-14 text-blue-600 mx-auto mb-4" />
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Forms & Authorization Documents
+            </h2>
+            <p className="text-lg text-gray-600">
+              Download required authorization forms and distribute to families prior to the evaluation appointment.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {/* Recording Authorization Form */}
+            <div className="border border-gray-200 rounded-lg p-6 flex items-center justify-between gap-6 bg-gray-50">
+              <div className="flex items-start gap-4">
+                <FileText className="w-10 h-10 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    Authorization for Session Recording and Clinical Documentation
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Required prior to evaluation. Authorizes audio recording of the psychiatric evaluation session and school team meetings for clinical documentation purposes. All recordings are HIPAA-protected end to end. Dr. Kale takes full clinical responsibility for all findings and the evaluation report.
+                  </p>
+                  <p className="text-xs text-gray-400 mt-2">
+                    Word Document (.docx) — Print, sign, and return to your Special Education office
+                  </p>
+                </div>
+              </div>
+              <a
+                href="/Dr_Kale_Recording_Authorization_Form.docx"
+                download
+                className="flex-shrink-0"
+              >
+                <button className="flex items-center gap-2 px-4 py-2 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors whitespace-nowrap">
+                  <Download className="w-4 h-4" />
+                  Download Form
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-6 bg-blue-50 border border-blue-100 rounded-lg p-5">
+            <p className="text-sm text-gray-700">
+              <strong>For Special Education Directors:</strong> This form is suitable for all Connecticut school districts and requires no district-specific modifications. It may be distributed by email using the covering letter template available in your district's secure portal folder, or printed and sent home with families. A signed copy should be uploaded to your district portal before the evaluation appointment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             Frequently Asked Questions
