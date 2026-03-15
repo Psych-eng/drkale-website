@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Shield, AlertTriangle, Brain, Scale, DollarSign, Users, Lock, Upload, Download } from "lucide-react";
+import { Shield, AlertTriangle, Brain, Scale, DollarSign, Users, Lock, Upload, Download, FileText } from "lucide-react";
 
 export default function SchoolDistricts() {
   return (
@@ -243,6 +243,61 @@ export default function SchoolDistricts() {
               </Link>
               <p className="text-sm text-muted-foreground mt-4">
                 Don't have an access code yet? Contact Dr. Kale to set up your district's secure portal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Forms & Authorization Documents Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="flex justify-center mb-4">
+                <FileText className="h-14 w-14 text-primary" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Forms & Authorization Documents
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Download, complete, and return required authorization forms to your Special Education office prior to the evaluation appointment.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {/* Recording Authorization Form */}
+              <div className="bg-background border border-border rounded-lg p-6 flex items-center justify-between gap-6">
+                <div className="flex items-start gap-4">
+                  <FileText className="h-10 w-10 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-lg font-bold mb-1">
+                      Authorization for Session Recording and Clinical Documentation
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      Required prior to evaluation. Authorizes audio recording of the psychiatric evaluation session and school team meetings for clinical documentation purposes. All recordings are HIPAA-protected end to end.
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Word Document (.docx) — Print, sign, and return to your Special Education office
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="/Dr_Kale_Recording_Authorization_Form.docx"
+                  download
+                  className="flex-shrink-0"
+                >
+                  <Button variant="outline" className="flex items-center gap-2 whitespace-nowrap">
+                    <Download className="h-4 w-4" />
+                    Download Form
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-primary/5 border border-primary/20 rounded-lg p-5">
+              <p className="text-sm text-foreground/80">
+                <strong>Note for Special Education Directors:</strong> This authorization form is designed to be distributed to families prior to the evaluation appointment. It may be sent by email with the covering letter template available in your district's secure portal, or printed and mailed. The form is generic and suitable for all Connecticut school districts — no district-specific modifications are required.
               </p>
             </div>
           </div>
