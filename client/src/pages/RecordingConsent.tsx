@@ -17,7 +17,7 @@ import {
   generateFilledConsentPdf,
 } from "@/lib/generateConsentPdf";
 
-const WEB3FORMS_ACCESS_KEY = "4fadda93-5270-4094-b962-384f682b01e4";
+const SUBMISSION_URL = "https://drkale-consent.email-060.workers.dev";
 
 type FormState = {
   studentName: string;
@@ -103,38 +103,31 @@ export default function RecordingConsent() {
         type: "application/pdf",
       });
 
-      // Submit to Web3Forms with the PDF as an attachment
+      // Submit to our Cloudflare Worker, which forwards to Resend.
       const submission = new FormData();
-      submission.append("access_key", WEB3FORMS_ACCESS_KEY);
+      submission.append("student_name", formData.studentName);
+      submission.append("student_dob", formData.studentDob);
+      submission.append("school_district", formData.schoolDistrict);
+      submission.append("parent_name", formData.parentName);
+      submission.append("parent_printed_name", formData.parentPrintedName);
+      submission.append("parent_relationship", formData.parentRelationship);
+      submission.append("signature_date", formData.signatureDate);
       submission.append(
-        "subject",
-        `Recording Authorization Submitted — ${formData.studentName}`
+        "signature_method",
+        signature.type === "drawn" ? "drawn" : "typed"
       );
-      submission.append("from_name", "drkale.net Recording Consent Form");
-      submission.append("Student Name", formData.studentName);
-      submission.append("Date of Birth", formData.studentDob);
-      submission.append("School District", formData.schoolDistrict);
-      submission.append("Parent or Guardian Name", formData.parentName);
-      submission.append("Printed Name", formData.parentPrintedName);
-      submission.append("Relationship to Student", formData.parentRelationship);
-      submission.append("Signature Date", formData.signatureDate);
-      submission.append(
-        "Signature Method",
-        signature.type === "drawn" ? "Drawn signature" : "Typed signature"
-      );
-      submission.append("Submitted At", new Date().toISOString());
       submission.append("attachment", pdfBlob, filename);
-      // Web3Forms honeypot — bots fill this, humans don't
+      // Honeypot — bots fill this, humans don't
       submission.append("botcheck", "");
 
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(SUBMISSION_URL, {
         method: "POST",
         body: submission,
       });
       const result = await response.json();
 
-      if (!result.success) {
-        throw new Error(result.message || "Submission failed");
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Submission failed");
       }
 
       // Build a download URL for the parent's records
