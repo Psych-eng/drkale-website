@@ -14,8 +14,7 @@ import Contact from "./pages/Contact";
 import SchoolPortal from "./pages/SchoolPortal";
 import PortalGuide from "./pages/PortalGuide";
 import AdminDashboard from "./pages/AdminDashboard";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
+import RecordingConsent from "./pages/RecordingConsent";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -25,7 +24,7 @@ function Router() {
       <Header />
       <Switch>
         <Route path={"/"} component={Home} />
-        <Route path={"/iep-tool"} component={IEPTool} />
+      <Route path={"/iep-tool"} component={IEPTool} />
         <Route path={"/school-districts"} component={SchoolDistricts} />
         <Route path={"/parents"} component={Parents} />
         <Route path={"/process"} component={Process} />
@@ -34,8 +33,7 @@ function Router() {
         <Route path={"/school-portal"} component={SchoolPortal} />
         <Route path={"/portal-guide"} component={PortalGuide} />
         <Route path={"/admin"} component={AdminDashboard} />
-        <Route path={"/blog"} component={Blog} />
-        <Route path={"/blog/:slug"} component={BlogPost} />
+        <Route path={"/recording-consent"} component={RecordingConsent} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
