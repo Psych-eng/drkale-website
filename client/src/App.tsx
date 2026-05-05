@@ -15,9 +15,9 @@ import SchoolPortal from "./pages/SchoolPortal";
 import PortalGuide from "./pages/PortalGuide";
 import AdminDashboard from "./pages/AdminDashboard";
 import RecordingConsent from "./pages/RecordingConsent";
+import Resources from "./pages/Resources";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 function Router() {
   return (
     <>
@@ -34,6 +34,7 @@ function Router() {
         <Route path={"/portal-guide"} component={PortalGuide} />
         <Route path={"/admin"} component={AdminDashboard} />
         <Route path={"/recording-consent"} component={RecordingConsent} />
+        <Route path={"/resources"} component={Resources} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
@@ -42,12 +43,10 @@ function Router() {
     </>
   );
 }
-
 // NOTE: About Theme
 // - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
 //   to keep consistent foreground/background color across components
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
@@ -63,5 +62,4 @@ function App() {
     </ErrorBoundary>
   );
 }
-
 export default App;
