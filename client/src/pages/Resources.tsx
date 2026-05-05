@@ -1,4 +1,4 @@
-import { FileText, Phone, ExternalLink, BookOpen, Heart, AlertCircle, Download, Globe } from "lucide-react";
+import { FileText, Phone, ExternalLink, BookOpen, Heart, AlertCircle, Globe } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Resources() {
@@ -98,14 +98,13 @@ export default function Resources() {
                     A fillable form that school districts can provide to parents to authorize the
                     recording of school-based meetings or sessions.
                   </p>
-                  <a
-                    href="/School_Parent_Recording_Consent_Fillable.pdf"
-                    download
+                  <Link
+                    href="/recording-consent"
                     className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download PDF
-                  </a>
+                    <FileText className="w-4 h-4 mr-2" />
+                    View Form
+                  </Link>
                 </div>
               </div>
             </div>
