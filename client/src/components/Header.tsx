@@ -38,6 +38,9 @@ export default function Header() {
             Credentials
           </Link>
           <Link href="/blog" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            Blog
+          </Link>
+          <Link href="/resources" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
             Resources
           </Link>
           <Link href="/contact">
@@ -78,6 +81,9 @@ export default function Header() {
               Credentials
             </Link>
             <Link href="/blog" className="block text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              Blog
+            </Link>
+            <Link href="/resources" className="block text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               Resources
             </Link>
             <Link href="/contact" className="block">
