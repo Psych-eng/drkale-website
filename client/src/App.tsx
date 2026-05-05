@@ -16,6 +16,12 @@ import PortalGuide from "./pages/PortalGuide";
 import AdminDashboard from "./pages/AdminDashboard";
 import RecordingConsent from "./pages/RecordingConsent";
 import Resources from "./pages/Resources";
+import ThreatAssessment from "./pages/ThreatAssessment";
+import ManifestationDetermination from "./pages/ManifestationDetermination";
+import ExpertWitness from "./pages/ExpertWitness";
+import StaffTraining from "./pages/StaffTraining";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 function Router() {
@@ -35,6 +41,14 @@ function Router() {
         <Route path={"/admin"} component={AdminDashboard} />
         <Route path={"/recording-consent"} component={RecordingConsent} />
         <Route path={"/resources"} component={Resources} />
+        {/* Service pages */}
+        <Route path={"/threat-assessment"} component={ThreatAssessment} />
+        <Route path={"/manifestation-determination"} component={ManifestationDetermination} />
+        <Route path={"/expert-witness"} component={ExpertWitness} />
+        <Route path={"/staff-training"} component={StaffTraining} />
+        {/* Blog */}
+        <Route path={"/blog"} component={Blog} />
+        <Route path={"/blog/:slug"} component={BlogPost} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
