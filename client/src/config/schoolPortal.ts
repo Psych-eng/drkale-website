@@ -47,7 +47,9 @@ export const schoolPortalConfig: Record<string, string> = {
   "MIDDLETOWN-9EPJ-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAvO2S08MD5QKyZiaS3AwbnAQNoGocwgZFArKXdJjd_vx8?e=CW4vd6", // Middletown
   "NEWINGTON-J5JU-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgC40_4FhcbQQbTfF2BA4ZmNAUtU9xA4OYdcklpfu_VQxDM?e=uMDjQY", // Newington
   "PORTLAND-HHDF-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgBzMU82PtgOQpbKV-lAYKo6AffsJBiA-jzS1UZVHtrBviw?e=cGUBhH", // Portland
+  "SIMSBURY-AXZF-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgA6YMKJExB3QrdWW0eOxTSDAdyEZuFc5W8GY_0S7pYWVNk?e=i6AjUf", // Simsbury
   "SOUTHWINDSOR-ZUZN-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDnwZ3gCerGS7s-373xiDsWAVwE5s4MKhl4QRpoVE3TGmo?e=tkN70r", // South Windsor
+  "VERNON-PNU9-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAZnz3TulfqRJl-WbD2yw9cATJHjUoi8guPzUBRc4ATA7o?e=eNGicW", // Vernon
 
   // ─────────────────────────────────────────────────────────────────────────
   // SCHOOL DISTRICTS — Test/Demo (for testing purposes only)
@@ -84,9 +86,11 @@ export const schoolPortalConfig: Record<string, string> = {
  * Middletown    - MIDDLETOWN-9EPJ-2026
  * Newington     - NEWINGTON-J5JU-2026
  * Portland      - PORTLAND-HHDF-2026
+ * Simsbury      - SIMSBURY-AXZF-2026
  * South Windsor - SOUTHWINDSOR-ZUZN-2026
+ * Vernon        - VERNON-PNU9-2026
  * 
- * TOTAL ACTIVE DISTRICTS: 11
+ * TOTAL ACTIVE DISTRICTS: 13
  * 
  * SEMANTICMIND COLLEAGUES:
  * * Dr. David Winokur - WINOKUR-2026  (winokurpsych@gmail.com)
