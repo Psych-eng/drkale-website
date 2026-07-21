@@ -45,6 +45,7 @@ export const schoolPortalConfig: Record<string, string> = {
   "GRISWOLD-WOAD-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgC4c64H0aUXQqsOQuYHuSTfATJ4AfVtQarcN0KhaxTBdfQ?e=pgTB6X", // Griswold
   "HAMPTON-F5PM-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgDLZLNX4LlVS42l5xjGSz28AbWOWEi8KKnidmhWKCaF-bQ?e=cJ16ba", // Hampton
   "MIDDLETOWN-9EPJ-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgAvO2S08MD5QKyZiaS3AwbnAQNoGocwgZFArKXdJjd_vx8?e=CW4vd6", // Middletown
+  "MONTVILLE-XSWV-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgCX27qDBnOLRKJkT1o0L8M9AWXcZW-hj6q8udqugSnTX0k?e=wSBndf", // Montville
   "NEWINGTON-J5JU-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgC40_4FhcbQQbTfF2BA4ZmNAUtU9xA4OYdcklpfu_VQxDM?e=uMDjQY", // Newington
   "PORTLAND-HHDF-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgBzMU82PtgOQpbKV-lAYKo6AffsJBiA-jzS1UZVHtrBviw?e=cGUBhH", // Portland
   "SIMSBURY-AXZF-2026": "https://drkale.sharepoint.com/:f:/s/MilindKaleMDLLC/IgA6YMKJExB3QrdWW0eOxTSDAdyEZuFc5W8GY_0S7pYWVNk?e=i6AjUf", // Simsbury
@@ -84,13 +85,14 @@ export const schoolPortalConfig: Record<string, string> = {
  * Griswold      - GRISWOLD-WOAD-2026
  * Hampton       - HAMPTON-F5PM-2026
  * Middletown    - MIDDLETOWN-9EPJ-2026
+ * Montville     - MONTVILLE-XSWV-2026
  * Newington     - NEWINGTON-J5JU-2026
  * Portland      - PORTLAND-HHDF-2026
  * Simsbury      - SIMSBURY-AXZF-2026
  * South Windsor - SOUTHWINDSOR-ZUZN-2026
  * Vernon        - VERNON-PNU9-2026
  * 
- * TOTAL ACTIVE DISTRICTS: 13
+ * TOTAL ACTIVE DISTRICTS: 14
  * 
  * SEMANTICMIND COLLEAGUES:
  * * Dr. David Winokur - WINOKUR-2026  (winokurpsych@gmail.com)
