@@ -20,34 +20,62 @@ export default function SchoolPortal() {
     // Normalize the access code (uppercase, trim whitespace)
     const normalizedCode = accessCode.trim().toUpperCase();
 
-    // Check if the code exists in the configuration
+    // Primary path: ask the Worker to validate the code AND log the attempt
+    // in a single request. This is what makes logging reliable — the
+    // Worker, not the browser, decides whether the code is valid, so the
+    // log entry is written as part of producing the redirect link itself,
+    // not as a separate fire-and-forget call that can silently fail.
+    try {
+      const response = await fetch('/api/portal-access', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accessCode: normalizedCode }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Worker responded with status ${response.status}`);
+      }
+
+      const data = (await response.json()) as { success: boolean; redirectUrl: string | null };
+
+      if (data.success && data.redirectUrl) {
+        window.location.href = data.redirectUrl;
+        return;
+      }
+
+      setError("Invalid access code. Please check your code and try again.");
+      setIsValidating(false);
+      return;
+    } catch (workerError) {
+      // Safety net: if the request to the Worker couldn't complete at all
+      // (network issue, a school network filter or ad blocker interfering
+      // with the request, etc.), fall back to the local code lookup so a
+      // legitimate district is never locked out of their documents. This
+      // fallback path is not guaranteed to be logged, but that's a much
+      // smaller problem than blocking access outright.
+      console.error('Portal access request failed, using local fallback:', workerError);
+    }
+
     const sharePointLink = schoolPortalConfig[normalizedCode];
 
-    // Extract district name from access code (e.g., "HAMPTON-F5PM-2026" -> "Hampton")
-    const districtName = normalizedCode.split('-')[0];
-    const districtNameFormatted = districtName.charAt(0) + districtName.slice(1).toLowerCase();
+    if (sharePointLink) {
+      // Best-effort logging attempt for the fallback path; ignore failures.
+      const districtName = normalizedCode.split('-')[0];
+      const districtNameFormatted = districtName.charAt(0) + districtName.slice(1).toLowerCase();
 
-    // Log the access attempt
-    try {
-      await fetch('/api/log-access', {
+      fetch('/api/log-access', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           accessCode: normalizedCode,
           districtName: districtNameFormatted,
-          success: !!sharePointLink,
-          sharePointUrl: sharePointLink || undefined,
+          success: true,
+          sharePointUrl: sharePointLink,
         }),
+      }).catch(() => {
+        // Already in the fallback path; nothing more we can do here.
       });
-    } catch (error) {
-      console.error('Failed to log access:', error);
-      // Don't block access if logging fails
-    }
 
-    if (sharePointLink) {
-      // Redirect to the SharePoint folder
       window.location.href = sharePointLink;
     } else {
       setError("Invalid access code. Please check your code and try again.");
