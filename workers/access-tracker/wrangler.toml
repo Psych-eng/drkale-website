@@ -2,6 +2,21 @@ name = "school-portal-tracker"
 main = "index.ts"
 compatibility_date = "2024-01-01"
 
+# Routes - this worker handles API requests on the live site.
+# IMPORTANT: this must stay ABOVE the [vars] section below. In TOML files,
+# anything listed after a [section] header belongs to that section until the
+# next header appears — a previous version of this file had "routes" placed
+# after [vars] by mistake, which caused Wrangler to treat it as an ordinary
+# environment variable instead of an actual route configuration.
+routes = [
+  { pattern = "drkale.net/api/*", zone_name = "drkale.net" }
+]
+
+# Don't publish a public workers.dev preview address for this Worker — it's
+# only meant to be reached through drkale.net, not through a separate,
+# unbranded Cloudflare test URL.
+workers_dev = false
+
 # KV Namespace for storing access logs
 [[kv_namespaces]]
 binding = "ACCESS_LOGS"
@@ -11,8 +26,3 @@ id = "d5ec92daeb0e4d589869f531f4c3fa10"
 [vars]
 ADMIN_EMAIL = "email@drkale.net"
 ADMIN_PASSWORD_HASH = "2598be28a868828c199a282736b723fc91da0479694a2a10b301ace69a4fdc86"
-
-# Routes - this worker will handle API requests
-routes = [
-  { pattern = "drkale.net/api/*", zone_name = "drkale.net" }
-]
