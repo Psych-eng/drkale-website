@@ -264,7 +264,7 @@ export default function Home() {
             </div>
             <div className="bg-accent/50 rounded-lg p-8 flex flex-col items-center">
               <img
-                src="/drkalephoto.jpg"
+                src="/dr-kale-photo.jpg"
                 alt="Dr. Milind Kale, MD — Child and Adolescent Psychiatrist in Glastonbury, CT"
                 className="w-48 h-auto object-contain rounded-lg mb-6 border-4 border-primary/20"
               />
