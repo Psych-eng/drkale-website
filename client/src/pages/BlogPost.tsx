@@ -80,7 +80,7 @@ export default function BlogPost() {
             <div className="mt-12 p-6 bg-accent/20 rounded-lg border">
               <div className="flex items-start gap-4">
                 <img
-                  src="/drkalephoto.jpg"
+                  src="/dr-kale-photo.jpg"
                   alt="Dr. Milind Kale, MD"
                   className="h-16 w-16 rounded-full object-cover object-top flex-shrink-0"
                 />
