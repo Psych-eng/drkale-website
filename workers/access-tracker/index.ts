@@ -3,7 +3,23 @@
  * 
  * This worker logs all access code usage and sends email notifications.
  * It uses Cloudflare KV for storage and MailChannels for email delivery.
+ *
+ * UPDATED: This worker now also validates access codes and generates the
+ * SharePoint redirect itself (see handlePortalAccess / POST /api/portal-access).
+ * Previously, the React site validated codes and redirected on its own, and
+ * only *told* this worker about it afterward via a fire-and-forget call to
+ * /api/log-access. That meant a district could reach their SharePoint folder
+ * successfully even if the logging call silently failed (blocked by an ad
+ * blocker, a school network filter, etc.) — which is why access could keep
+ * working for months while the admin dashboard logged nothing.
+ *
+ * Now, logging happens as part of the same request that produces the
+ * redirect link, so a successful access is much harder to leave unlogged.
+ * The old /api/log-access route is left in place, unused by the main flow,
+ * only as a fallback safety net on the client side.
  */
+
+import { portalConfig } from './portalConfig';
 
 interface Env {
   ACCESS_LOGS: KVNamespace;
@@ -38,7 +54,14 @@ export default {
     }
 
     try {
-      // Route: Log access attempt
+      // Route: Validate an access code, log the attempt, and return the
+      // redirect link — all in one authoritative server-side step.
+      if (path === '/api/portal-access' && request.method === 'POST') {
+        return await handlePortalAccess(request, env, corsHeaders);
+      }
+
+      // Route: Log access attempt (legacy — kept only as a client-side
+      // fallback if /api/portal-access is unreachable; see SchoolPortal.tsx)
       if (path === '/api/log-access' && request.method === 'POST') {
         return await handleLogAccess(request, env, corsHeaders);
       }
@@ -93,30 +116,14 @@ async function handleLogAccess(request: Request, env: Env, corsHeaders: Record<s
       sharePointUrl: data.sharePointUrl,
     };
 
-    // Generate unique log ID
-    const logId = `log_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-
-    // Store in KV
-    await env.ACCESS_LOGS.put(logId, JSON.stringify(accessLog));
-
-    // Also store in a list for easy retrieval (last 1000 logs)
-    const logsListKey = 'logs_list';
-    const existingList = await env.ACCESS_LOGS.get(logsListKey);
-    const logsList: string[] = existingList ? JSON.parse(existingList) : [];
-    
-    logsList.unshift(logId); // Add to beginning
-    if (logsList.length > 1000) {
-      logsList.pop(); // Remove oldest if over 1000
-    }
-    
-    await env.ACCESS_LOGS.put(logsListKey, JSON.stringify(logsList));
+    await recordAccessLog(env, accessLog);
 
     // Send email notification if successful access
     if (data.success && env.ADMIN_EMAIL) {
       await sendEmailNotification(env.ADMIN_EMAIL, accessLog);
     }
 
-    return new Response(JSON.stringify({ success: true, logId }), {
+    return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
@@ -126,6 +133,80 @@ async function handleLogAccess(request: Request, env: Env, corsHeaders: Record<s
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   }
+}
+
+/**
+ * Handle a portal access request: validate the code, produce the redirect
+ * link, and log the attempt — all server-side, in one request.
+ *
+ * IMPORTANT: A failure while writing the log entry must NEVER prevent a
+ * valid district from getting their redirect link back. Logging is wrapped
+ * in its own try/catch for exactly that reason.
+ */
+async function handlePortalAccess(request: Request, env: Env, corsHeaders: Record<string, string>): Promise<Response> {
+  try {
+    const data = await request.json() as { accessCode?: string };
+    const normalizedCode = (data.accessCode || '').trim().toUpperCase();
+    const districtRaw = normalizedCode.split('-')[0] || 'unknown';
+    const districtName = districtRaw.charAt(0) + districtRaw.slice(1).toLowerCase();
+
+    const sharePointUrl = portalConfig[normalizedCode];
+    const success = !!sharePointUrl;
+
+    const accessLog: AccessLog = {
+      timestamp: new Date().toISOString(),
+      accessCode: normalizedCode,
+      districtName,
+      ipAddress: request.headers.get('CF-Connecting-IP') || 'unknown',
+      userAgent: request.headers.get('User-Agent') || 'unknown',
+      success,
+      sharePointUrl: sharePointUrl || undefined,
+    };
+
+    // Logging is best-effort from the redirect's point of view. If this
+    // throws for any reason (KV outage, etc.), the district still gets
+    // their redirect link below — they are never blocked by a logging issue.
+    try {
+      await recordAccessLog(env, accessLog);
+      if (success && env.ADMIN_EMAIL) {
+        await sendEmailNotification(env.ADMIN_EMAIL, accessLog);
+      }
+    } catch (logError) {
+      console.error('Failed to record access log (access still granted):', logError);
+    }
+
+    return new Response(JSON.stringify({ success, redirectUrl: sharePointUrl || null }), {
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    console.error('Error in handlePortalAccess:', error);
+    return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+      status: 500,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  }
+}
+
+/**
+ * Shared helper: write one access log entry to KV and maintain the
+ * logs_list index. Used by both handlePortalAccess and the legacy
+ * handleLogAccess, so there is exactly one place this logic lives.
+ */
+async function recordAccessLog(env: Env, accessLog: AccessLog): Promise<void> {
+  const logId = `log_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+  await env.ACCESS_LOGS.put(logId, JSON.stringify(accessLog));
+
+  const logsListKey = 'logs_list';
+  const existingList = await env.ACCESS_LOGS.get(logsListKey);
+  const logsList: string[] = existingList ? JSON.parse(existingList) : [];
+
+  logsList.unshift(logId);
+  if (logsList.length > 1000) {
+    logsList.pop();
+  }
+
+  await env.ACCESS_LOGS.put(logsListKey, JSON.stringify(logsList));
 }
 
 /**
